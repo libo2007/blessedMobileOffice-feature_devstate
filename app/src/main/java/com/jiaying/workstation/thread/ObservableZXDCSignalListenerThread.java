@@ -1,6 +1,7 @@
 package com.jiaying.workstation.thread;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
@@ -16,7 +17,9 @@ import android.softfan.util.textUnit;
 import android.util.Log;
 
 import com.jiaying.workstation.activity.plasmacollection.Res;
+import com.jiaying.workstation.app.MobileofficeApp;
 import com.jiaying.workstation.entity.DeviceEntity;
+import com.jiaying.workstation.entity.PlasmaMachineEntity;
 import com.jiaying.workstation.entity.ServerTime;
 import com.jiaying.workstation.net.serveraddress.SignalServer;
 import com.jiaying.workstation.utils.MyLog;
@@ -232,6 +235,17 @@ public class ObservableZXDCSignalListenerThread extends Thread implements IDataC
         } else if ("timestamp".equals(cmd.getCmd())) {
             ServerTime.curtime = Long.parseLong(textUnit.ObjToString(cmd.getValue("t")));
             notifyObservers(Res.TIMESTAMP);
+        } else if ("zxdc_state_change".equals(cmd.getCmd())) {
+            //解析更新状态
+            HashMap<String, Object> map = cmd.getValues();
+            String nurseID = (String) map.get("nurseID");
+            String nurseName = (String) map.get("nurseName");
+            String nursePic = (String) map.get("nursePic");
+            String locationID = (String) map.get("locationID");
+            String state = (String) map.get("state");
+            PlasmaMachineEntity plasmaMachineEntity = new PlasmaMachineEntity(nurseID,nurseName,nursePic,locationID,Integer.parseInt(state),false);
+            MobileofficeApp.updatePlasmaMachineEntityList(plasmaMachineEntity);
+            notifyObservers(Res.ZXDC_STATE_CHANGE);
         }
 
     }

@@ -9,5 +9,6 @@ public enum Res {
     ZXDCRES,
     TABLETRES,
     NOTHING,
-    TIMESTAMP
+    TIMESTAMP,
+    ZXDC_STATE_CHANGE
 }

@@ -15,6 +15,19 @@ public class PlasmaMachineEntity implements Serializable {
     private int state;
     private boolean isCheck;
 
+    public PlasmaMachineEntity() {
+
+    }
+
+    public PlasmaMachineEntity(String nurseID, String nurseName, String nursePic, String locationID, int state, boolean isCheck) {
+        this.nurseID = nurseID;
+        this.nurseName = nurseName;
+        this.nursePic = nursePic;
+        this.locationID = locationID;
+        this.state = state;
+        this.isCheck = isCheck;
+    }
+
     public boolean isCheck() {
         return isCheck;
     }
