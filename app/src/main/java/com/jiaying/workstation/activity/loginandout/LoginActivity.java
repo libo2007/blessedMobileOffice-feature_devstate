@@ -18,6 +18,7 @@ import com.jiaying.workstation.activity.sensor.FingerprintActivity;
 import com.jiaying.workstation.adapter.NurseAdapter;
 import com.jiaying.workstation.db.DataPreference;
 import com.jiaying.workstation.entity.NurseEntity;
+import com.jiaying.workstation.thread.ObservableZXDCSignalListenerThread;
 import com.jiaying.workstation.utils.ApiClient;
 import com.jiaying.workstation.utils.DealFlag;
 import com.jiaying.workstation.utils.MyLog;
@@ -47,6 +48,8 @@ public class LoginActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         login_deal_flag = new DealFlag();
+        ObservableZXDCSignalListenerThread   observableZXDCSignalListenerThread = new ObservableZXDCSignalListenerThread();
+        observableZXDCSignalListenerThread.start();
     }
 
     @Override
