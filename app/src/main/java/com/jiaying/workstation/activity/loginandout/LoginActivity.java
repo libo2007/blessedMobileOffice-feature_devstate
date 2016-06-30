@@ -48,8 +48,6 @@ public class LoginActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         login_deal_flag = new DealFlag();
-        ObservableZXDCSignalListenerThread   observableZXDCSignalListenerThread = new ObservableZXDCSignalListenerThread();
-        observableZXDCSignalListenerThread.start();
     }
 
     @Override
