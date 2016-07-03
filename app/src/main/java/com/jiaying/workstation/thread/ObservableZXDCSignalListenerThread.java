@@ -245,7 +245,7 @@ public class ObservableZXDCSignalListenerThread extends Thread implements IDataC
             String nursePic = (String) map.get("nursePic");
             String locationID = (String) map.get("locationID");
             String state = (String) map.get("state");
-            PlasmaMachineEntity plasmaMachineEntity = new PlasmaMachineEntity(nurseID,nurseName,nursePic,locationID,Integer.parseInt(state),false);
+            PlasmaMachineEntity plasmaMachineEntity = new PlasmaMachineEntity(nurseID,nurseName,nursePic,locationID,Integer.parseInt(state));
             MobileofficeApp.updatePlasmaMachineEntityList(plasmaMachineEntity);
             notifyObservers(Res.ZXDC_STATE_CHANGE);
         }

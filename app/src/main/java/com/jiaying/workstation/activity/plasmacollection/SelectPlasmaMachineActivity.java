@@ -73,18 +73,18 @@ public class SelectPlasmaMachineActivity extends BaseActivity {
         mAdapter.notifyDataSetChanged();
 
         sure_txt = (TextView) findViewById(R.id.sure_txt);
-        sure_txt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int selectSize = 0;
-                for (int i = 0; i < mList.size(); i++) {
-                    if (mList.get(i).isCheck()) {
-                        selectSize++;
-                    }
-                }
-
-            }
-        });
+//        sure_txt.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                int selectSize = 0;
+//                for (int i = 0; i < mList.size(); i++) {
+//                    if (mList.get(i).isCheck()) {
+//                        selectSize++;
+//                    }
+//                }
+//
+//            }
+//        });
 
         resContext = new ResContext();
         resContext.open();
